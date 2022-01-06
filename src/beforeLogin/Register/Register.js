@@ -17,7 +17,7 @@ class Register extends React.Component {
     clearTimeout(this.timeoutId)
     this.timeoutId= setTimeout(()=>{
     let htttpObj= new XMLHttpRequest;
-   htttpObj.open('post',`http://localhost:2020/users/check-uid/${uid}`)
+   htttpObj.open('post',`https://node1811.herokuapp.com/users/check-uid/${uid}`)
    htttpObj.send();
    htttpObj.onload=()=>{
      let res=htttpObj.responseText;
@@ -44,7 +44,7 @@ class Register extends React.Component {
     let phone=phoneRef.value;
     let email=emailRef.value;
     let data={uid,pwd,phone,email}
-    fetch('http://localhost:2020/users/reg',{
+    fetch('https://node1811.herokuapp.com/users/reg',{
       method:'post',
       body:JSON.stringify(data),
       headers:{

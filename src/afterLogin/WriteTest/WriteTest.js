@@ -35,7 +35,7 @@ class WriteTest extends React.Component {
 
   }
   componentDidMount(){
-    axios.get('http://localhost:2020/que/get-que')
+    axios.get('https://node1811.herokuapp.com/que/get-que')
     .then((res)=>{
       let result=res.data
       result.forEach((obj)=>{
@@ -92,7 +92,7 @@ class WriteTest extends React.Component {
       marks:marksPercent,
       date:dateObj.getDate() +'-'+(dateObj.getMonth()+1)+'-'+dateObj.getFullYear()
     }
-    axios.post('http://localhost:2020/results/save-result',{resultObj:dataObj})
+    axios.post('https://node1811.herokuapp.com/results/save-result',{resultObj:dataObj})
     .then(()=>{
 
     })

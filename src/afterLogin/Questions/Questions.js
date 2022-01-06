@@ -67,7 +67,7 @@ class Questions extends React.Component {
      let dataObj={
       queObj:this.state.queObj
      }
-    axios.post('http://localhost:2020/que/insert-que1',dataObj)
+    axios.post('https://node1811.herokuapp.com/que/insert-que1',dataObj)
     .then((res)=>{
       console.log(res);
       if(res.data.acknowledged && res.data.insertedId){

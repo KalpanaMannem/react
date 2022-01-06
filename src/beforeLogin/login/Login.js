@@ -9,7 +9,7 @@ export const Login=(props)=>{
        let p=pwd.current.value;
     
      var httpObj=  new XMLHttpRequest();
-     httpObj.open('post',`http://localhost:2020/users/login/${u}?pwd=${p}`);
+     httpObj.open('post',`https://node1811.herokuapp.com/users/login/${u}?pwd=${p}`);
      httpObj.send();
      httpObj.onload=()=>{
          debugger;

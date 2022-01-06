@@ -8,7 +8,7 @@ import {BeforeLogin} from './beforeLogin/BeforeLogin'
 import {AfterLogin} from './afterLogin/AfterLogin'
 import  React,{createContext, useEffect, useState} from 'react';
 
-const baseUrl='http://localhost:2020/'
+const baseUrl=''
 function App() {
   const [isLoggedin,setIsLoggedin]=useState(false)
   useEffect(()=>{

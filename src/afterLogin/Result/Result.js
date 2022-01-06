@@ -11,7 +11,7 @@ class Result extends React.Component {
     }
   }
   componentDidMount(){
-    axios.get('http://localhost:2020/results/get-result/'+window.sessionStorage.name)
+    axios.get('https://node1811.herokuapp.com/results/get-result/'+window.sessionStorage.name)
     .then((res)=>{
       this.setState({
         result:res.data.reverse()

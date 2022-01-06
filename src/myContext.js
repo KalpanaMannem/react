@@ -1,4 +1,4 @@
-import react from 'react'
+import React from 'react';
 
-export const ctx=React.createContext()
+export const ctx=React.createContext();
 

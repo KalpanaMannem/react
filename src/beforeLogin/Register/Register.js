@@ -1,4 +1,5 @@
 import React    from "react";
+import { ctx } from "../../myContext.js";
 import template from "./Register.jsx";
 
 class Register extends React.Component {
@@ -17,7 +18,7 @@ class Register extends React.Component {
     clearTimeout(this.timeoutId)
     this.timeoutId= setTimeout(()=>{
     let htttpObj= new XMLHttpRequest;
-   htttpObj.open('post',`https://node1811.herokuapp.com/users/check-uid/${uid}`)
+   htttpObj.open('post',`${this.context}users/check-uid/${uid}`)
    htttpObj.send();
    htttpObj.onload=()=>{
      let res=htttpObj.responseText;
@@ -44,7 +45,7 @@ class Register extends React.Component {
     let phone=phoneRef.value;
     let email=emailRef.value;
     let data={uid,pwd,phone,email}
-    fetch('https://node1811.herokuapp.com/users/reg',{
+    fetch(`${this.context}users/reg`,{
       method:'post',
       body:JSON.stringify(data),
       headers:{
@@ -76,4 +77,5 @@ class Register extends React.Component {
   }
 }
 
+Register.contextType=ctx;
 export default Register;

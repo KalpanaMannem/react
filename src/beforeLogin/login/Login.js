@@ -1,15 +1,17 @@
 import React from 'react'
+import {ctx} from '../../myContext'
 
 export const Login=(props)=>{
    const uid= React.createRef();
    const pwd= React.createRef();
+   const ctxData=React.useContext(ctx);
    const fnLogin=()=>{
        debugger;
        let u=uid.current.value;
        let p=pwd.current.value;
-    
+      
      var httpObj=  new XMLHttpRequest();
-     httpObj.open('post',`https://node1811.herokuapp.com/users/login/${u}?pwd=${p}`);
+     httpObj.open('post',`${ctxData}users/login/${u}?pwd=${p}`);
      httpObj.send();
      httpObj.onload=()=>{
          debugger;

@@ -1,6 +1,7 @@
 import React    from "react";
 import template from "./WriteTest.jsx";
 import axios from 'axios'
+import {ctx} from '../../myContext'
 
 class WriteTest extends React.Component {
   constructor(){
@@ -35,7 +36,7 @@ class WriteTest extends React.Component {
 
   }
   componentDidMount(){
-    axios.get('https://node1811.herokuapp.com/que/get-que')
+    axios.get(`${this.context}que/get-que`)
     .then((res)=>{
       let result=res.data
       result.forEach((obj)=>{
@@ -92,7 +93,7 @@ class WriteTest extends React.Component {
       marks:marksPercent,
       date:dateObj.getDate() +'-'+(dateObj.getMonth()+1)+'-'+dateObj.getFullYear()
     }
-    axios.post('https://node1811.herokuapp.com/results/save-result',{resultObj:dataObj})
+    axios.post(`${this.context}results/save-result`,{resultObj:dataObj})
     .then(()=>{
 
     })
@@ -104,5 +105,5 @@ class WriteTest extends React.Component {
     return template.call(this);
   }
 }
-
+WriteTest.contextType=ctx;
 export default WriteTest;

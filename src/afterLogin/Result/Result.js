@@ -2,6 +2,7 @@ import React    from "react";
 import template from "./Result.jsx";
 // import $ from 'jquery'
 import axios from 'axios'
+import {ctx} from '../../myContext'
 
 class Result extends React.Component {
   constructor(){
@@ -11,7 +12,7 @@ class Result extends React.Component {
     }
   }
   componentDidMount(){
-    axios.get('https://node1811.herokuapp.com/results/get-result/'+window.sessionStorage.name)
+    axios.get(`${this.context}results/get-result/${window.sessionStorage.name}`)
     .then((res)=>{
       this.setState({
         result:res.data.reverse()
@@ -26,4 +27,5 @@ class Result extends React.Component {
   }
 }
 
+Result.contextType=ctx;
 export default Result;

@@ -1,6 +1,7 @@
 import React    from "react";
 import template from "./Questions.jsx";
 import axios from "axios";
+import {ctx} from '../../myContext'
 
 
 class Questions extends React.Component {
@@ -67,7 +68,7 @@ class Questions extends React.Component {
      let dataObj={
       queObj:this.state.queObj
      }
-    axios.post('https://node1811.herokuapp.com/que/insert-que1',dataObj)
+    axios.post(`${this.context}que/insert-que1`,dataObj)
     .then((res)=>{
       console.log(res);
       if(res.data.acknowledged && res.data.insertedId){
@@ -94,5 +95,5 @@ class Questions extends React.Component {
     return template.call(this);
   }
 }
-
+Questions.contextType=ctx;
 export default Questions;

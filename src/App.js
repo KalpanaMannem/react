@@ -7,8 +7,9 @@ import {Footer} from './footer/Footer';
 import {BeforeLogin} from './beforeLogin/BeforeLogin'
 import {AfterLogin} from './afterLogin/AfterLogin'
 import  React,{createContext, useEffect, useState} from 'react';
+import {ctx} from './myContext'
 
-const baseUrl=''
+const baseUrl='https://node1811.herokuapp.com/'
 function App() {
   const [isLoggedin,setIsLoggedin]=useState(false)
   useEffect(()=>{
@@ -21,10 +22,11 @@ function App() {
   }
   return (
     <div className='App'>
-     
+     <ctx.Provider value={baseUrl}>
     <Header/>
     {isLoggedin ? <AfterLogin fnUpdateLogin={fnUpdateLogin}/> : <BeforeLogin fnUpdateLogin={fnUpdateLogin}/>}
     <Footer/>
+    </ctx.Provider>
     </div>
   );
 }
